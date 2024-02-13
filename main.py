@@ -29,6 +29,8 @@ while is_game_on:
 
     if is_move:
         snake.move()
+    else:
+        score_board.game_over()
 
     if snake.head.distance(food) < 15:
         food.refresh()
