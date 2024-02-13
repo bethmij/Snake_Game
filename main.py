@@ -10,44 +10,41 @@ is_move = True
 size = 3
 
 
-def move_forward():
-    for snake_bloke in snake:
-        snake_bloke.forward(10)
+def move_snake(heading: int):
+    def inner_function():
+        for index, snake_bloke in enumerate(snake[::-1]):
 
+            xcor = snake_bloke.xcor() if index == 2 else 0
 
-def move_backward():
-    for snake_bloke in snake:
-        snake_bloke.backward(10)
+            if snake_bloke.xcor() == xcor:
+                snake_bloke.speed('fastest')
+                snake_bloke.setheading(heading)
 
+            snake_bloke.forward(10)
 
-def move_upward():
-    for snake_bloke in snake:
-        snake_bloke.setheading(0)
-        snake_bloke.forward(10)
+    return inner_function
 
-
-def move_downward():
-    for snake_bloke in snake:
-        snake_bloke.setheading(270)
-        snake_bloke.forward(10)
 
 
 for i in range(size):
     turtle = Turtle(shape='square')
     turtle.penup()
     turtle.color('white')
-    turtle.goto(x=20 * i, y=0)
+    turtle.goto(x=-(20 * i), y=0)
     snake.append(turtle)
+# snake.reverse()
 
 while is_move:
-
-    if turtle.xcor() > 310.0:
+    if 310.0 < turtle.xcor() or -280.0 > turtle.xcor() and 280.0 < turtle.ycor() or -280.0 > turtle.ycor():
         is_move = False
 
-    screen.onkey(move_forward, 'up')
-    screen.onkey(move_forward, 'up')
-    screen.onkey(move_forward, 'up')
-    screen.onkey(move_forward, 'up')
-    move_snake()
+    move_snake(90)
 
+
+
+# screen.listen()
+# screen.onkey(move_snake(90), 'Up')
+# screen.onkey(move_snake(270), 'Down')
+# screen.onkey(move_snake(0), 'Left')
+# screen.onkey(move_snake(180), 'Right')
 screen.exitonclick()
