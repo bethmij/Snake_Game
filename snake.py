@@ -4,6 +4,8 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+MOVING_DISTANCE = 10
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 
 
 class Snake:
@@ -15,14 +17,17 @@ class Snake:
         self.head = self.snake[0]
 
     def create_snake(self):
-        colour = ('red', 'green', 'blue')
-        for i in range(self.size):
-            turtle = Turtle(shape='square')
-            turtle.penup()
-            # turtle.color(colour[i])
-            turtle.color('white')
-            turtle.goto(x=-(20 * i), y=0)
-            self.snake.append(turtle)
+        # colour = ('red', 'green', 'blue')
+        for position in STARTING_POSITIONS:
+            self.add_snake(position)
+
+    def add_snake(self, position):
+        turtle = Turtle(shape='square')
+        turtle.penup()
+        # turtle.color(colour[i])
+        turtle.color('white')
+        turtle.goto(position)
+        self.snake.append(turtle)
 
     def move(self):
         for index in range(len(self.snake) - 1, 0, -1):
@@ -30,7 +35,7 @@ class Snake:
             new_y = self.snake[index - 1].ycor()
             self.snake[index].goto(new_x, new_y)
 
-        self.head.forward(10)
+        self.head.forward(MOVING_DISTANCE)
 
     def can_move(self):
         timmy = self.snake[0]
@@ -55,3 +60,6 @@ class Snake:
     def move_right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def grow_snake(self):
+        self.add_snake(self.snake[-1].position())

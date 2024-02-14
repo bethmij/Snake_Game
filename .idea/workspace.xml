@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72fb97dc-8e6a-45e1-bd6e-f95e408f13f5" name="Changes" comment="create a score board">
-      <change beforePath="$PROJECT_DIR$/score_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/score_board.py" afterDir="false" />
+    <list default="true" id="72fb97dc-8e6a-45e1-bd6e-f95e408f13f5" name="Changes" comment="detect collision with wall">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/snake.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707842844338</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="detect collision with wall">
+      <option name="closed" value="true" />
+      <created>1707843182467</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707843182467</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -142,6 +152,7 @@
     <MESSAGE value="move the snake body" />
     <MESSAGE value="detect collision with food" />
     <MESSAGE value="create a score board" />
-    <option name="LAST_COMMIT_MESSAGE" value="create a score board" />
+    <MESSAGE value="detect collision with wall" />
+    <option name="LAST_COMMIT_MESSAGE" value="detect collision with wall" />
   </component>
 </project>
