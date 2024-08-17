@@ -12,7 +12,6 @@ class Snake:
 
     def __init__(self):
         self.snake = []
-        self.size = 3
         self.create_snake()
         self.head = self.snake[0]
 
@@ -28,6 +27,13 @@ class Snake:
         turtle.color('white')
         turtle.goto(position)
         self.snake.append(turtle)
+
+    def restart_snake(self):
+        for snake_seg in self.snake:
+            snake_seg.hideturtle()
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
 
     def move(self):
         for index in range(len(self.snake) - 1, 0, -1):
@@ -62,4 +68,8 @@ class Snake:
             self.head.setheading(RIGHT)
 
     def grow_snake(self):
+        self.add_snake(self.snake[-1].position())
+        self.add_snake(self.snake[-1].position())
+        self.add_snake(self.snake[-1].position())
+        self.add_snake(self.snake[-1].position())
         self.add_snake(self.snake[-1].position())

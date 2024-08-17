@@ -26,23 +26,24 @@ while is_game_on:
     screen.update()
     time.sleep(0.05)
 
-    is_game_on = snake.can_move()
+    is_collide = snake.can_move()
 
-    if is_game_on:
+    if is_collide:
         snake.move()
     else:
-        score_board.game_over()
+        snake.restart_snake()
+        score_board.reset_score()
+        # score_board.game_over()
 
     if snake.head.distance(food) < 15:
         food.refresh()
         score_board.refresh()
         snake.grow_snake()
 
-    for snake_segment in snake.snake:
-        if snake_segment != snake.head:
-            if snake.head.distance(snake_segment) < 5:
-                is_game_on = False
-                score_board.game_over()
-                break
+    for snake_segment in snake.snake[1:]:
+        if snake.head.distance(snake_segment) < 5:
+            is_game_on = False
+            score_board.game_over()
+            break
 
 screen.exitonclick()
